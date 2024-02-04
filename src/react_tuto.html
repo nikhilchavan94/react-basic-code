@@ -1,0 +1,65 @@
+<!-- 1. // Button click event callback function in react // let data='data message'; // function application() // { // alert(data); // } // return ( //
+<div className="App">
+    //
+    <h1>App Default Componenet</h1>
+    //
+    <Users /> // <button onClick={application}>Click</button> //
+</div>
+// ); 
+
+
+
+
+2. // Use state in reat // state is a Hook,which binds the variable or any.state is like container used to update store varibale array objects etc. // function App() { // let [data,setdata]=useState('nick') // function Updatedata() // { // if(data=='nick')
+// return setdata('stark'); // else return setdata('nick') // } // return ( //
+<div className="App">
+    //
+    <h1>{data}</h1>
+    // <button sx={{ backgroundColor: 'lightblue' , padding: '20px' ,margin: '100px' }} onClick={Updatedata}>Update
+        Data</button> //
+    <Users /> //
+</div>
+// ); // }
+
+
+
+3. // class component with callback function and button onclick event // class App extends React.Component { // constructor() { // super(); // this.state = { // data: "nick", // }; // } // application() // { // alert('applicatin alert') //
+} // render() { // return ( //
+<div className="App">
+    //
+    <h1>{this.state.data}</h1>
+    // <button onClick={()=>{this.application()}}>Click</button> //
+    <Student /> //
+</div>
+// ); // } // }
+
+
+
+
+
+4.// Props in React ==> props used for passing data as same as parameter of fucntion.used to trasfer data from one component to another component. // function App() // { // let [name,setdata]=useState('stark') // return(
+<div className="App">
+    //
+    <h1>App</h1>
+    //
+    <h1>{}</h1>
+    //
+    <Student name={name} email="n@gmail.com" any={{address: 'pune' }} /> // <button onClick={()=>setdata('nick')}>Update
+        Name</button> //
+</div>); } 
+
+
+
+
+
+
+5.class App extends React.Component { constructor() //execute 2 { super(); this.state={ name:"nick" } } render() { return(
+<div className="App">
+    {
+    <Student name={this.state.name} /> /*extecute 1 */}
+    <button onClick={()=>this.setState({name:"stark"})}>update</button> //execute 3
+</div>
+) } } // studen component import React from "react"; class Student extends React.Component{ // render is must in class component // render is used to rerender the content or page to show updated data render() // execute 3 { console.log(this.props); return
+(
+<div>{this.props.name}</div>
+); } } export default Student; -->
