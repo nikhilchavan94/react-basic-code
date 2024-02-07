@@ -7,6 +7,7 @@ import FunctionasProps from "./FunctionasProps";
 import Child from "./Child";
 import UserRenderLifecycle from "./UserRenderLifecycle";
 import { useState } from "react";
+import Componentwillunmount from "./Componentwillunmount"
 
 // function App() {
 // // function data_fun()
@@ -89,40 +90,138 @@ import { useState } from "react";
 //   }
 // }
 
-class App extends React.Component {
-  constructor() {
-    super();
-    console.log("constructor");
-    //  this.state={name:"vick"}
-    //  console.log(this.state.name);
-    this.state = { count: 0 };
-  }
+// componentDidUpdate Life Cycle Method
 
-  componentDidUpdate(
-    preProps,
-    preState,
-    snapshot
-  ) 
-  //this method calls whanever state is change in lif cycle or code all time
-  //  3 parameters [preState]- gives previous value or state ,used to checck previous and current state are same or not
+// class App extends React.Component {
+//   constructor() {
+//     super();
+//     console.log("constructor");
+//     //  this.state={name:"vick"}
+//     //  console.log(this.state.name);
+//     this.state = { count: 0 };
+//   }
+
+//   componentDidUpdate(
+//     preProps,
+//     preState,
+//     snapshot
+//   )
+//   //this method calls whanever state is change in lif cycle or code all time
+//   //  3 parameters [preState]- gives previous value or state ,used to checck previous and current state are same or not
+//   //               [snapshhot]-
+//   {
+//     console.log("component did update", this.state, preState,snapshot);
+//     if (this.state.count < 10) {
+//       this.setState({ count: this.state.count + 1 });
+//       console.log("count are up to 10");
+//     }
+//   }
+//   render() {
+//     console.log("render");
+//     return (
+//       <div>
+//         {/* <button onClick={()=>this.setState({name:"nick"})}>Update</button> */}
+//         <button onClick={() => this.setState({ count: 1 })}>count</button>
+//         {/* <div>  {this.state.name}</div> */}
+//         <div>{this.state.count}</div>
+//       </div>
+//     );
+//   }
+// }
+
+// shouldComponentUpdate Life Cycle Method -  Its is used to stop default rendering.
+// it renders but doesn't display so if it returns true them it will appear on display
+// it used to avoid unwanted rendering
+// class App extends React.Component
+// {
+//   constructor()
+//   {
+//     super();
+//     console.log("constructor");
+//     this.state={count:0}
+//   }
+
+//   render()
+//   {
+//     console.log("render");
+//     return  <div>
+//       <button onClick={()=>this.setState({count:this.state.count+1})}>Update</button>
+//       <h1>{this.state.count}</h1>
+//     </div>
+//   }
+
+//   shouldComponentUpdate()
+//   {
+//     console.log("should component update");
+//     console.log(this.state.count);
+//     return true;
+//   }
+// }
+
+
+
+
+// componentWillUnmount Life Cycle Method
+
+// class App extends React.Component
+// {
+ 
+//  constructor()
+//  {
+//   super();
+//   this.state={
+//     show:true
+  
+//   }
+  
+//  }
+//   render()
+//   {
+//     return(
+//       <div className="App">
+//         {
+//           this.state.show ? <Componentwillunmount/> : ""
+//         }
+//         <button onClick={()=>this.setState({show :!this.state.show})}>Toddle To Child Component</button>
+//       </div>
+//     )
+//   }
+
+// }
+
+
+
+
+// Hooks in React Js 
+// Usestate
+
+
+// function App()
+// {
+//   const[name,setname]=useState("Nick")
+//   return(
+//     <div className="App">
+//       <button onClick={()=>setname("vick")}>click</button>
+//      <h1> {name}</h1>
+//     </div>
+//   )
+// }
+
+
+
+// Hooks In React Js
+
+//useEffect
+
+function App()
+{
+  React.useEffect(()=>
   {
-    console.log("component did update", this.state, preState);
-    if (this.state.count < 10) {
-      this.setState({ count: this.state.count + 1 });
-      console.log("count are up to 10");
-    }
-  }
-  render() {
-    console.log("render");
-    return (
-      <div>
-        {/* <button onClick={()=>this.setState({name:"nick"})}>Update</button> */}
-        <button onClick={() => this.setState({ count: 1 })}>count</button>
-        {/* <div>  {this.state.name}</div> */}
-        <div>{this.state.count}</div>
-      </div>
-    );
-  }
+    console.log("UseEffect");
+  })
+  return(
+    <div className="App"></div>
+  )
 }
 
 export default App;
