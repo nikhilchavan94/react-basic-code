@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useEffect } from "react";
 import Login from "./Login";
 import Student from "./Student";
 import BasicFormValidation from "./BasicFormValidation";
@@ -8,6 +8,7 @@ import Child from "./Child";
 import UserRenderLifecycle from "./UserRenderLifecycle";
 import { useState } from "react";
 import Componentwillunmount from "./Componentwillunmount"
+import Use_effect_using_state from "./Use_effect_using_state";
 
 // function App() {
 // // function data_fun()
@@ -213,15 +214,46 @@ import Componentwillunmount from "./Componentwillunmount"
 
 //useEffect
 
+// function App()
+// {  const [count,setcount]=useState(0)
+//   React.useEffect(()=>
+//   {
+//     console.log("UseEffect");
+//   })
+//   return(
+
+//     <div className="App"><button onClick={()=>setcount(count+1)}>count</button>
+//          <div>{count}</div></div>
+    
+//   )
+// }
+
+
+
+// useeffect with  state and props
+
 function App()
 {
-  React.useEffect(()=>
-  {
-    console.log("UseEffect");
-  })
-  return(
-    <div className="App"></div>
-  )
-}
+const[data,setdata]=useState(10)
+const[count,setcount]=useState(100)
 
+
+  
+  // if u want to use  useEffect on only one button or function pass it as parametr in useEffect
+
+  return(
+ 
+    <div className="App">  
+{/* use effect using props   */}
+            <Use_effect_using_state  data={data} count={count}/> 
+      {data}
+      <button onClick={()=>setdata(data+1)}>data</button>
+      <br />
+      {count}
+      <button onClick={()=>setcount(count+1)}>count</button>
+    </div>
+
+  )
+
+}
 export default App;
