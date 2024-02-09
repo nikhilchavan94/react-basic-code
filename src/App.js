@@ -9,7 +9,8 @@ import UserRenderLifecycle from "./UserRenderLifecycle";
 import { useState } from "react";
 import Componentwillunmount from "./Componentwillunmount"
 import Use_effect_using_state from "./Use_effect_using_state";
-
+import {Button}  from 'react-bootstrap'
+ 
 // function App() {
 // // function data_fun()
 // // {
@@ -232,28 +233,75 @@ import Use_effect_using_state from "./Use_effect_using_state";
 
 // useeffect with  state and props
 
-function App()
-{
-const[data,setdata]=useState(10)
-const[count,setcount]=useState(100)
+// function App()
+// {
+// const[data,setdata]=useState(10)
+// const[count,setcount]=useState(100)
 
 
   
-  // if u want to use  useEffect on only one button or function pass it as parametr in useEffect
+//   // if u want to use  useEffect on only one button or function pass it as parametr in useEffect
 
-  return(
+//   return(
  
-    <div className="App">  
-{/* use effect using props   */}
-            <Use_effect_using_state  data={data} count={count}/> 
-      {data}
-      <button onClick={()=>setdata(data+1)}>data</button>
-      <br />
-      {count}
-      <button onClick={()=>setcount(count+1)}>count</button>
-    </div>
+//     <div className="App">  
+// {/* use effect using props   */}
+//             <Use_effect_using_state  data={data} count={count}/> 
+//       {data}
+//       <button onClick={()=>setdata(data+1)}>data</button>
+//       <br />
+//       {count}
+//       <button onClick={()=>setcount(count+1)}>count</button>
+//     </div>
 
+//   )
+
+// }
+
+
+
+// styling in react js
+
+function App()
+{
+  const arraylis=[{
+    name:"nick",email:"n@gmail.com"
+  },{
+    name:"nick",email:"n@gmail.com"
+  },{
+    name:"nick",email:"n@gmail.com"
+  }]
+  arraylis.map((item)=>
+  {
+    console.log("arraylist",item);
+  })
+//     arraylis.map((item)=>{
+// console.log("map function",item);
+//     });
+  // for(let i=0;i<arraylis.length;i++)
+  // {
+  //   console.log("array list :",arraylis[i]);
+  // }
+  return (
+    
+    <div className="App">   
+      {/* <h1 style={{color:'red',backgroundColor:'blue'}}>Inline Css</h1>
+      <Button>click</Button> */}
+    
+    {arraylis.map((item)=>
+  
+
+    <tr>
+      <td>{item.name}</td>
+    </tr>
+  )}
+    </div>
   )
 
-}
+  
+}                 
+
+
+
+
 export default App;
