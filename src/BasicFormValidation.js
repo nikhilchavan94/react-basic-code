@@ -18,7 +18,7 @@ function BasicFormValidation() {
         }
         e.preventDefault();   //to prevent auto submiting the form
     }
-
+// git temp
 
     function handle(e)
     {
