@@ -413,23 +413,19 @@ import Child_to_pareants from "./Child_to_parents";
 function App() {
   const [item, setitem] = useState(10);
   const [data, setdata] = useState(0);
- 
-   const  mutlifunctionmemo=useMemo(   
-     function mul()
-   {
-
-    console.log("mutlimemo");
-    return data+10
-   },[data])
+ const multi=useMemo(function mul()
+ {
+  console.log("multiiiiiii");
+  return data + 10;
+ },[data])
    
-
     return (
     <div className="App">
-      <div>{mul()}</div>
+      <div>{multi}</div>
       <button onClick={() => setdata(data + 1)}>Add</button>
       <button onClick={() => setitem(item * 10)}>Add</button>
-      <div>{data}</div>
       <div>{item}</div>
+      <div>{data}</div>
     </div>
   );
 }
