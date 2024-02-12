@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import Login from "./Login";
 import Student from "./Student";
 import BasicFormValidation from "./BasicFormValidation";
@@ -7,10 +7,12 @@ import FunctionasProps from "./FunctionasProps";
 import Child from "./Child";
 import UserRenderLifecycle from "./UserRenderLifecycle";
 import { useState } from "react";
-import Componentwillunmount from "./Componentwillunmount"
+import Componentwillunmount from "./Componentwillunmount";
 import Use_effect_using_state from "./Use_effect_using_state";
-import {Button}  from 'react-bootstrap'
- 
+import { Button } from "react-bootstrap";
+
+import Reuse_component from "./Reuse_component";
+import Child_to_pareants from "./Child_to_parents";
 // function App() {
 // // function data_fun()
 // // {
@@ -160,22 +162,19 @@ import {Button}  from 'react-bootstrap'
 //   }
 // }
 
-
-
-
 // componentWillUnmount Life Cycle Method
 
 // class App extends React.Component
 // {
- 
+
 //  constructor()
 //  {
 //   super();
 //   this.state={
 //     show:true
-  
+
 //   }
-  
+
 //  }
 //   render()
 //   {
@@ -191,12 +190,8 @@ import {Button}  from 'react-bootstrap'
 
 // }
 
-
-
-
-// Hooks in React Js 
+// Hooks in React Js
 // Usestate
-
 
 // function App()
 // {
@@ -208,8 +203,6 @@ import {Button}  from 'react-bootstrap'
 //     </div>
 //   )
 // }
-
-
 
 // Hooks In React Js
 
@@ -225,11 +218,9 @@ import {Button}  from 'react-bootstrap'
 
 //     <div className="App"><button onClick={()=>setcount(count+1)}>count</button>
 //          <div>{count}</div></div>
-    
+
 //   )
 // }
-
-
 
 // useeffect with  state and props
 
@@ -238,15 +229,13 @@ import {Button}  from 'react-bootstrap'
 // const[data,setdata]=useState(10)
 // const[count,setcount]=useState(100)
 
-
-  
 //   // if u want to use  useEffect on only one button or function pass it as parametr in useEffect
 
 //   return(
- 
-//     <div className="App">  
+
+//     <div className="App">
 // {/* use effect using props   */}
-//             <Use_effect_using_state  data={data} count={count}/> 
+//             <Use_effect_using_state  data={data} count={count}/>
 //       {data}
 //       <button onClick={()=>setdata(data+1)}>data</button>
 //       <br />
@@ -258,50 +247,191 @@ import {Button}  from 'react-bootstrap'
 
 // }
 
+// // styling in react js
 
+// function App()
+// {
+//   const array=[{id:1,name:"nick",address:"pune",email:"a@gmail.com"},
+//   {id:2,name:"vivk",address:"aaaa",email:"a@asas.com"},
+//   {id:3,name:"micm",address:"cfcfc",email:"a@sas.com"}]
 
-// styling in react js
+// //  in react js we use map function instead of for loop because ,,,,
+// // the return fnction does not support for looop but siupport map function
+//   return(
+//   <div className="App">
+//  <div>{array.map((data)=>
+//  <table>
+//   <tbody>
+//  <tr>
+//   <td>{data.id}</td>
+//   <td>{data.name}</td>
+//   <td>{data.address}</td>
+//   <td>{data.email}</td>
+//  </tr></tbody></table>)
+// }</div>
+//   </div>);
+// }
 
-function App()
-{
-  const arraylis=[{
-    name:"nick",email:"n@gmail.com"
-  },{
-    name:"nick",email:"n@gmail.com"
-  },{
-    name:"nick",email:"n@gmail.com"
-  }]
-  arraylis.map((item)=>
-  {
-    console.log("arraylist",item);
-  })
-//     arraylis.map((item)=>{
-// console.log("map function",item);
-//     });
-  // for(let i=0;i<arraylis.length;i++)
-  // {
-  //   console.log("array list :",arraylis[i]);
-  // }
-  return (
-    
-    <div className="App">   
-      {/* <h1 style={{color:'red',backgroundColor:'blue'}}>Inline Css</h1>
-      <Button>click</Button> */}
-    
-    {arraylis.map((item)=>
-  
+// function App() {
+//   const array = [
+//     { name: "ala", adress: "snx" },
+//     { name: "13", adress: "snxsx" },
+//     { name: "qq", adress: "snxsx" },
+//   ];
+//   return (
+//     <div className="App">
+//       {array.map((item,i) =>
+//         item.adress === "snxsx"?(   // herer we use ternary operators to show specific data
+//           <table>
+//             {/* key is used for uniqueness in tables row react act like that the rows contetns must have unique key like id */}
+//             <tr key={i}>
+//             <td>{item.name}</td>
+//             <td>{item.adress}</td>
+//           </tr>
+//           </table>
+//         ) : null // ternary operator null
+//       )}
+//     </div>
+//   );
+// }
 
-    <tr>
-      <td>{item.name}</td>
-    </tr>
-  )}
+// list of array in react js with nested list
+
+// function App() {
+//   const student = [
+//     {
+//       name: "nick",
+//       address: "pune",
+//       email: "a@gmail.com",
+//       dest: [
+//         { a: "sa", b: "b" }
+//       ]
+//     },
+//     { name: "vivk", address: "aaaa", email: "a@asas.com" },
+//     { name: "micm", address: "cfcfc", email: "a@sas.com" },
+//   ];
+//   return (
+//     <div className="App">
+//       {student.map((item)=>
+//       <table>
+//         <tr>
+//           <td>{item.name}</td>
+//           <td>{item.address}</td>
+//           <td>{item.email}</td>
+//           <td>{item.dest.map((itemq)=>
+//           <tr>
+//             <td>{itemq.a}</td>
+//           </tr>
+//           )}</td>
+//         </tr>
+//       </table>)}
+//     </div>
+//   );
+// }
+
+// reuse component using props and list array
+
+// function App() {
+//   const user = [
+//     {
+//       name: "nick",
+//       address: "pune",
+//     },
+//     {
+//       name: "nick",
+//       address: "pune",
+//     },
+//     {
+//       name: "nick",
+//       address: "pune",
+//     },
+//   ];
+//   return (<div className="App">
+//       <div>
+//         {user.map((item)=>
+
+//            <Reuse_component  data={item}/>
+//            )}
+//       </div>
+
+//   </div>);
+// }
+
+// react Fragment  : generally we have to wrapped up elements in one section to avoid this fragment used.
+//  so we can write muktiple elements without wrapping.
+// <React.Fragment></React.Fragment>  or <> </>
+
+// function App()
+// {
+//   return(
+//     <div  className="App">
+//       <React.Fragment>
+//         <h1>kbskkd</h1>
+//         <h2>snlcsc</h2>
+//       </React.Fragment>
+//     </div>
+//   )
+// }
+
+// sending data child component to parent component
+
+//  function App()
+//  {
+//   const name="nick";
+//   function parentalert(surname)
+//   {
+//     alert(surname);
+//   }
+//   return(
+//     <div className="App">
+//    <Child_to_pareants alert={parentalert} ></Child_to_pareants>
+//     </div>
+//   )
+// }
+
+// pure component : it is used to avoid unwanted rendering of the class component
+// it is used only in class component for fucntional component .
+
+// class App extends React.PureComponent
+// {constructor()
+//   {
+//     super();
+//     this.state={
+//       count:0
+//     }
+//   }
+
+//   render()
+
+//   {console.log(this.state.count);
+//     return  <button onClick={()=>this.setState({count:this.state.count})}>click</button>
+//   }
+// }
+
+// recat js useMemo :it is used to avoid unwanted rendering of the function component
+
+function App() {
+  const [item, setitem] = useState(10);
+  const [data, setdata] = useState(0);
+ 
+   const  mutlifunctionmemo=useMemo(   
+     function mul()
+   {
+
+    console.log("mutlimemo");
+    return data+10
+   },[data])
+   
+
+    return (
+    <div className="App">
+      <div>{mul()}</div>
+      <button onClick={() => setdata(data + 1)}>Add</button>
+      <button onClick={() => setitem(item * 10)}>Add</button>
+      <div>{data}</div>
+      <div>{item}</div>
     </div>
-  )
-
-  
-}                 
-
-
-
+  );
+}
 
 export default App;
