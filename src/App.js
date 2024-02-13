@@ -410,24 +410,44 @@ import Child_to_pareants from "./Child_to_parents";
 
 // recat js useMemo :it is used to avoid unwanted rendering of the function component
 
-function App() {
-  const [item, setitem] = useState(10);
-  const [data, setdata] = useState(0);
- const multi=useMemo(function mul()
- {
-  console.log("multiiiiiii");
-  return data + 10;
- },[data])
+// function App() {
+
+//   const [count,setcount]=useState(0);
+//   const[item,setitem]=useState(10)
+
+//    const usememofun=useMemo(   
+//     function funmemo()
+//     {
+//       console.log("funmemo");
+//       return count*10;
+//     }
    
-    return (
+//    ,[item])
+//   return(
+//     <div className="App">
+      
+//       <button onClick={()=>setcount(count+1)}>count</button>
+//       <button onClick={()=>setitem(item*10)}>Item</button>
+//       <div>{usememofun}</div>
+//       <div>{count}</div>
+//       <div>{item}</div>
+//     </div>
+//   )
+// }
+
+
+
+
+// useRef in react js : React does not allow to manipulate DOM because it will make slower to application,
+// but useRef used to manipulate react DOM in only an emergency. it has authority to stop anyy fucniton ,to change style,hide show
+
+function App()
+{
+  return(
     <div className="App">
-      <div>{multi}</div>
-      <button onClick={() => setdata(data + 1)}>Add</button>
-      <button onClick={() => setitem(item * 10)}>Add</button>
-      <div>{item}</div>
-      <div>{data}</div>
+
     </div>
-  );
+  )
 }
 
 export default App;
