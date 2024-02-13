@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import Login from "./Login";
 import Student from "./Student";
 import BasicFormValidation from "./BasicFormValidation";
@@ -415,17 +415,17 @@ import Child_to_pareants from "./Child_to_parents";
 //   const [count,setcount]=useState(0);
 //   const[item,setitem]=useState(10)
 
-//    const usememofun=useMemo(   
+//    const usememofun=useMemo(
 //     function funmemo()
 //     {
 //       console.log("funmemo");
 //       return count*10;
 //     }
-   
+
 //    ,[item])
 //   return(
 //     <div className="App">
-      
+
 //       <button onClick={()=>setcount(count+1)}>count</button>
 //       <button onClick={()=>setitem(item*10)}>Item</button>
 //       <div>{usememofun}</div>
@@ -435,19 +435,21 @@ import Child_to_pareants from "./Child_to_parents";
 //   )
 // }
 
-
-
-
 // useRef in react js : React does not allow to manipulate DOM because it will make slower to application,
 // but useRef used to manipulate react DOM in only an emergency. it has authority to stop anyy fucniton ,to change style,hide show
 
-function App()
-{
-  return(
-    <div className="App">
+function App() {
+const inputref=useRef(null)
 
-    </div>
-  )
+function inputfucvn()
+{
+  inputref.current.style.color="red"
+}
+
+return <div className="App">
+  <input type="text"  ref={inputref} />
+  <button onClick={inputfucvn}>click</button>
+</div>
 }
 
 export default App;
